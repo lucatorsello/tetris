@@ -1,0 +1,65 @@
+# Python-specific
+*.pyc
+__pycache__
+
+# macOS
+.DS_Store
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Visual Studio Code specific files
+.vscode/
+
+# Pygame specific
+*.png
+*.jpg
+*.bmp
+*.tif
+*.tiff
+*.gif
+*.mp3
+*.wav
+*.ogg
+*.midi
+*.mod
+*.avi
+*.mpg
+*.mpeg
+*.ogv
+*.vob
+*.mov
+*.qt
+*.flv
+*.asf
+*.wmv
+*.rm
+*.rmvb
+*.swf
+venv
