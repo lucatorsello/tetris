@@ -1,5 +1,7 @@
 import pygame
 
+from setup_shapes.generate_shape import convert_shape_format
+
 
 def create_grid(locked_positions={}) -> list:
     grid = [[(0, 0, 0) for x in range(10)] for x in range(20)]
@@ -14,6 +16,8 @@ def create_grid(locked_positions={}) -> list:
 
 def draw_grid(
     surface,
+    row: int,
+    column: int,
     top_left_x: int,
     top_left_y: int,
     game_width: int,
@@ -21,15 +25,31 @@ def draw_grid(
     grid: list,
 ):
 
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            pygame.draw.rect(
+    sx = top_left_x
+    sy = top_left_y
+    for i in range(row):
+        pygame.draw.line(
+            surface, (128, 128, 128), (sx, sy + i * 30), (sx + game_width, sy + i * 30)
+        )  # horizontal lines
+        for j in range(column):
+            pygame.draw.line(
                 surface,
-                grid[i][j],
-                (top_left_x + j * 30, top_left_y + i * 30, 30, 30),
-                0,
-            )
+                (128, 128, 128),
+                (sx + j * 30, sy),
+                (sx + j * 30, sy + game_height),
+            )  #
 
-    pygame.draw.rect(
-        surface, (255, 0, 0), (top_left_x, top_left_y, game_width, game_height), 5
-    )
+
+def valid_space(shape, grid):
+    accepted_positions = [
+        [(j, i) for j in range(10) if grid[i][j] == (0, 0, 0)] for i in range(20)
+    ]
+    accepted_positions = [j for sub in accepted_positions for j in sub]
+    formatted = convert_shape_format(shape)
+
+    for pos in formatted:
+        if pos not in accepted_positions:
+            if pos[1] > -1:
+                return False
+
+    return True
