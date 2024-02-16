@@ -1,5 +1,5 @@
 import random
-from game_classes.shape import Piece
+from setup_shapes.shape import Piece
 from setup_shapes.graphics import shapes
 
 
