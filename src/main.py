@@ -13,10 +13,6 @@ top_left_x = (SCREEN_WIDTH - GAME_WIDTH) // 2
 top_left_y = SCREEN_HEIGHT - GAME_HEIGHT
 
 
-def create_grid(locked_positions={}):
-    pass
-
-
 def convert_shape_format(shape):
     pass
 
@@ -29,15 +25,7 @@ def check_lost(positions):
     pass
 
 
-def get_shape():
-    pass
-
-
 def draw_text_middle(text, size, color, surface):
-    pass
-
-
-def draw_grid(surface, row, col):
     pass
 
 
