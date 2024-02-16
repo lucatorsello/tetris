@@ -1,4 +1,4 @@
-from src.graphics.shapes import shapes, shape_colors
+from setup_shapes.graphics import shapes, shape_colors
 
 
 class Piece(object):

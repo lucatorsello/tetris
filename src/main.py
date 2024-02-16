@@ -13,10 +13,6 @@ top_left_x = (SCREEN_WIDTH - GAME_WIDTH) // 2
 top_left_y = SCREEN_HEIGHT - GAME_HEIGHT
 
 
-class Piece(object):
-    pass
-
-
 def create_grid(locked_positions={}):
     pass
 
