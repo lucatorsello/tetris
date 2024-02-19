@@ -17,7 +17,7 @@ def convert_shape_format(shape):
             if column == "0":
                 positions.append((shape.x + j, shape.y + i))
 
-    for i, pos in enumerate(positions):
-        positions[i] = (pos[0] - 2, pos[1] - 4)
+    for i, position in enumerate(positions):
+        positions[i] = (position[0] - 2, position[1] - 4)
 
     return positions

@@ -78,8 +78,8 @@ def main(window):
             if y > -1:
                 grid[y][x] = current_piece.color
         if change_piece:
-            for pos in shape_pos:
-                p = (pos[0], pos[1])
+            for position in shape_pos:
+                p = (position[0], position[1])
                 locked_positions[p] = current_piece.color
             current_piece = next_piece
             next_piece = get_shape()
