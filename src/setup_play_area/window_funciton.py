@@ -10,7 +10,7 @@ def draw_window(
     game_height: int,
     grid: list,
 ):
-    surface.fill((0, 0, 0))
+    surface.fill((0, 100, 150))
     # Tetris Title
     font = pygame.font.SysFont("comicsans", 60)
     label = font.render("TETRIS", 1, (255, 255, 255))
@@ -25,11 +25,11 @@ def draw_window(
 
     pygame.draw.rect(
         surface,
-        (255, 0, 0),
+        (0, 200, 0),
         (top_left_x, top_left_y, game_width, game_height),
         5,
     )
-    surface.blit(label, (top_left_x + game_width / 2 - (label.get_width() / 2), 30))
+    surface.blit(label, (top_left_x + game_width / 2 - (label.get_width() / 2), 20))
     draw_grid(
         surface,
         20,
