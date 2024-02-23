@@ -1,5 +1,7 @@
 import pygame
 from gameplay_rules.loss import check_lost
+from input_handler import handle_keypress
+from main_readability import place_shape_on_grid, update_locked_positions
 from setup_play_area.grid_functions import create_grid, valid_space
 from setup_play_area.window_funciton import draw_window
 
@@ -39,48 +41,12 @@ def main(window):
             if not (valid_space(current_piece, grid)) and current_piece.y > 0:
                 current_piece.y -= 1
                 change_piece = True
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-                pygame.display.quit()
-                quit()
 
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    current_piece.x -= 1
-                    if not valid_space(current_piece, grid):
-                        current_piece.x += 1
-
-                elif event.key == pygame.K_RIGHT:
-                    current_piece.x += 1
-                    if not valid_space(current_piece, grid):
-                        current_piece.x -= 1
-                elif event.key == pygame.K_UP:
-                    # rotate shape
-                    current_piece.rotation = current_piece.rotation + 1 % len(
-                        current_piece.shape
-                    )
-                    if not valid_space(current_piece, grid):
-                        current_piece.rotation = current_piece.rotation - 1 % len(
-                            current_piece.shape
-                        )
-
-                if event.key == pygame.K_DOWN:
-                    # move shape down
-                    current_piece.y += 1
-                    if not valid_space(current_piece, grid):
-                        current_piece.y -= 1
-
-        shape_pos = convert_shape_format(current_piece)
-
-        for i in range(len(shape_pos)):
-            x, y = shape_pos[i]
-            if y > -1:
-                grid[y][x] = current_piece.color
+        shape_position = convert_shape_format(current_piece)
+        run = handle_keypress(current_piece, grid, run)
+        place_shape_on_grid(shape_position, grid, current_piece)
         if change_piece:
-            for pos in shape_pos:
-                p = (pos[0], pos[1])
-                locked_positions[p] = current_piece.color
+            update_locked_positions(shape_position, locked_positions, current_piece)
             current_piece = next_piece
             next_piece = get_shape()
             change_piece = False

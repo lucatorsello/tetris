@@ -1,6 +1,6 @@
 def check_lost(positions):
-    for pos in positions:
-        x, y = pos
+    for position in positions:
+        x, y = position
         if y < 1:
             return True
     return False
