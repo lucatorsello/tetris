@@ -6,6 +6,7 @@ from setup_play_area.grid_functions import create_grid, valid_space
 from setup_play_area.window_funciton import draw_next_shape, draw_window
 
 from setup_shapes.generate_shape import convert_shape_format, get_shape
+from gameplay_rules.delete_row import clear_rows
 
 pygame.font.init()
 
@@ -50,7 +51,7 @@ def main(window):
             current_piece = next_piece
             next_piece = get_shape()
             change_piece = False
-
+            clear_rows(grid, locked_positions)
         draw_window(
             window,
             top_left_x,
