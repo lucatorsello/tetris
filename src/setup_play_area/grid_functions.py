@@ -23,7 +23,6 @@ def draw_grid(
     top_left_y: int,
     game_width: int,
     game_height: int,
-    grid: list,
 ):
 
     sx = top_left_x
@@ -38,7 +37,7 @@ def draw_grid(
                 (128, 128, 128),
                 (sx + j * 30, sy),
                 (sx + j * 30, sy + game_height),
-            )  #
+            )  # vertical
 
 
 def valid_space(shape: Piece, grid: list) -> bool:

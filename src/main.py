@@ -3,7 +3,7 @@ from gameplay_rules.loss import check_lost
 from input_handler import handle_keypress
 from main_readability import place_shape_on_grid, update_locked_positions
 from setup_play_area.grid_functions import create_grid, valid_space
-from setup_play_area.window_funciton import draw_window
+from setup_play_area.window_funciton import draw_next_shape, draw_window
 
 from setup_shapes.generate_shape import convert_shape_format, get_shape
 
@@ -59,6 +59,15 @@ def main(window):
             GAME_HEIGHT,
             grid,
         )
+        draw_next_shape(
+            next_piece,
+            window,
+            top_left_x,
+            top_left_y,
+            GAME_WIDTH,
+            GAME_HEIGHT,
+        )
+        pygame.display.update()
 
         if check_lost(locked_positions):
             run = False
