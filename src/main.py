@@ -85,11 +85,9 @@ def main(window):
                 window,
                 "YOU LOST!",
                 80,
-                (255, 255, 255),
-                top_left_x=top_left_x,
-                top_left_y=top_left_y,
-                game_height=GAME_HEIGHT,
-                game_width=GAME_WIDTH,
+                (255, 0, 0),
+                screen_height=SCREEN_HEIGHT,
+                screen_width=SCREEN_WIDTH,
             )
             pygame.display.update()
             pygame.time.delay(1500)
@@ -105,12 +103,10 @@ def main_menu(window):
         draw_text_middle(
             window,
             "Press Any Key To Play",
-            60,
+            40,
             (255, 255, 255),
-            top_left_x=top_left_x,
-            top_left_y=top_left_y,
-            game_width=GAME_WIDTH,
-            game_height=GAME_HEIGHT,
+            screen_height=SCREEN_HEIGHT,
+            screen_width=SCREEN_WIDTH,
         )
         pygame.display.update()
         for event in pygame.event.get():

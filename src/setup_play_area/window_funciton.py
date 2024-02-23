@@ -1,5 +1,8 @@
+import os
 import pygame
 from setup_play_area.grid_functions import draw_grid
+
+font_file = "../tetris/src/Minecraft.ttf"
 
 
 def draw_window(
@@ -14,18 +17,19 @@ def draw_window(
 ):
     surface.fill((0, 100, 150))
     # Tetris Title
-    font = pygame.font.SysFont("comicsans", 60)
+    font = pygame.font.Font(font_file, 60)
+    print(font)
     label = font.render("TETRIS", 1, (255, 255, 255))
     surface.blit(label, (top_left_x + game_width / 2 - (label.get_width() / 2), 20))
     # score
-    font = pygame.font.SysFont("comicsans", 30)
+    font = pygame.font.Font(font_file, 30)
     score = font.render("Score: " + str(score), 1, (255, 255, 255))
     surface.blit(
         score,
-        (top_left_x - 200, top_left_y + 150),
+        (top_left_x - 250, top_left_y + 150),
     )
     max_score = font.render("High Score: " + f"{last_score}", 1, (255, 255, 255))
-    surface.blit(max_score, (top_left_x - 200, top_left_y + 200))
+    surface.blit(max_score, (top_left_x - 250, top_left_y + 200))
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
@@ -54,7 +58,7 @@ def draw_window(
 
 
 def draw_next_shape(shape, surface, top_left_x, top_left_y, game_width, game_height):
-    font = pygame.font.SysFont("comicsans", 30)
+    font = pygame.font.SysFont("minecraft.ttf", 30)
     label = font.render("Next Shape", 1, (255, 255, 255))
 
     sx = top_left_x + game_width + 50

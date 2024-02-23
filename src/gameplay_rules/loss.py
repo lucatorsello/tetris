@@ -1,5 +1,7 @@
 import pygame
 
+font_file = "../tetris/src/Minecraft.ttf"
+
 
 def check_lost(positions):
     for position in positions:
@@ -9,16 +11,9 @@ def check_lost(positions):
     return False
 
 
-def draw_text_middle(
-    surface, text, size, color, top_left_x, top_left_y, game_width, game_height
-):
-    font = pygame.font.SysFont("comicsans", size, bold=True)
+def draw_text_middle(surface, text, size, color, screen_width, screen_height):
+    font = pygame.font.Font(font_file, size)
     label = font.render(text, 1, color)
+    label_rect = label.get_rect(center=(screen_width / 2, screen_height / 2))
 
-    surface.blit(
-        label,
-        (
-            top_left_x + game_width / 2 - (label.get_width() / 2),
-            top_left_y + game_height / 2 - label.get_height() / 2,
-        ),
-    )
+    surface.blit(label, label_rect)
