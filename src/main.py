@@ -23,7 +23,7 @@ top_left_y = SCREEN_HEIGHT - GAME_HEIGHT
 
 
 def main(window):
-    locked_positions = {}  # (x,y):(255,0,0)
+    locked_positions = {}
     grid = create_grid(locked_positions)
     change_piece = False
     run = True

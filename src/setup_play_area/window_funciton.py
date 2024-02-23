@@ -18,7 +18,6 @@ def draw_window(
     surface.fill((0, 100, 150))
     # Tetris Title
     font = pygame.font.Font(font_file, 60)
-    print(font)
     label = font.render("TETRIS", 1, (255, 255, 255))
     surface.blit(label, (top_left_x + game_width / 2 - (label.get_width() / 2), 20))
     # score
@@ -26,10 +25,10 @@ def draw_window(
     score = font.render("Score: " + str(score), 1, (255, 255, 255))
     surface.blit(
         score,
-        (top_left_x - 250, top_left_y + 150),
+        (top_left_x - 240, top_left_y + 150),
     )
     max_score = font.render("High Score: " + f"{last_score}", 1, (255, 255, 255))
-    surface.blit(max_score, (top_left_x - 250, top_left_y + 200))
+    surface.blit(max_score, (top_left_x - 240, top_left_y + 200))
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
