@@ -7,8 +7,6 @@ def handle_keypress(current_piece, grid, run_game: bool):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             return False
-            pygame.display.quit()
-            quit()
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
